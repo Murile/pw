@@ -161,6 +161,11 @@ footer{
     margin: 10px;
 }
 
+.footer_section_logo_logo{
+    display: flex;
+    justify-content: center;
+}
+
 .footer_section_logo p {
     font-size: 1em;
     line-height: 1.4;
