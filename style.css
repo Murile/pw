@@ -285,3 +285,9 @@ footer{
     font-size: 1.4em;
     color: white;
 }
+
+.cartao{
+    display: flex;
+    justify-content: end;
+    width: 95%;
+}
