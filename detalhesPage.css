@@ -107,17 +107,20 @@ a {
     font-size: 40px;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 10px;
+    font-weight: 100;
 }
 
 .preco p{
     font-size: 40px;
-    padding: 0;
-    margin-top: 30px;
+    font-weight: 100;
+    padding-top: 30px;
+    margin: 0;
 }
 
-.juros{
+.juros p{
     font-size: 20px;
-    display: flex;
+    margin: 0;
+    padding-bottom: 50px;
 }
 
 .botao{
@@ -125,11 +128,35 @@ a {
 }
 
 .botao button{
-    
+    background-color: var(--cor-fundo-colecoes);
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding: 10px 100px;
+}
+
+.botao button:hover{
+    background-color: #7fbdff;
+    text-decoration: dotted;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
 .detalhes{
-    
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.detalhes p {
+    margin: 20px 0;
+}
+
+.detalhes_produto h2 {
+    font-size: 24px;
+
 }
 
 /*main*/
