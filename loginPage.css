@@ -98,16 +98,17 @@ input{
     width: 50%;
 }
 
-.botao button{
+.botao a{
     background-color: #2F4F4F;
     border-radius: 10px;
     border: none;
     padding: 10px 25px;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--cor-branca);
+    text-decoration: none;
 }
 
-.botao button:hover{
+.botao a:hover{
     color: var(--cor-preta);
     border: 1px solid black;
     background: var(--cor-branca);
