@@ -107,7 +107,6 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 83%;
     height: auto;
 }
 
@@ -116,6 +115,54 @@ iframe{
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
     border: none;
 }
+
+
+/*Aba pedidos*/
+
+.box{
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    margin: 100px 50px;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.header_pedido{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.titulo_pedido{
+
+}
+
+.status_pedido {
+
+}
+
+.detalhes_pedido {
+
+}
+
+.footer_pedido{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4em;
+    align-items: center;
+}
+
+.divisao{
+    height: 1px;
+    width: 970px;
+    background-color: #bfbfbf;
+    margin-left: 4em;
+    margin-top: 2em;
+    margin-bottom: -1em;
+}
+/*Aba pedidos*/
+
