@@ -2,6 +2,7 @@
 /*HEADER*/
 body{
     margin: 0;
+    height: 850px;
     font-family: var(--fonte-arial);
 }
 
@@ -57,7 +58,7 @@ body{
 
 #user{
     display: flex;
-    min-height: 826px;
+    min-height: 850px;
 }
 .title{
     padding: 30px 0px;
@@ -107,7 +108,7 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
+    height: 100%;
 }
 
 iframe{
@@ -116,6 +117,7 @@ iframe{
     justify-content: center;
     width: 100%;
     border: none;
+    height: 850px;
 }
 
 
@@ -134,18 +136,6 @@ iframe{
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
-}
-
-.titulo_pedido{
-
-}
-
-.status_pedido {
-
-}
-
-.detalhes_pedido {
-
 }
 
 .footer_pedido{
