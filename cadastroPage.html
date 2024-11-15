@@ -1,56 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prata Pura</title>
+    <title>Prata Pura - Cadastro</title>
     <link rel="stylesheet" href="./cadastroPage.css">
     <link rel="icon" href="src/img/logo_barra-removebg-preview.png" />
 </head>
+
 <body>
     <div class="logo">
         <a href="./homePage.html">
             <img src="./src/img/logo_login.png" alt="">
         </a>
     </div>
-    <label class="borda">
-
-    </label>
+    <label class="borda"></label>
     <div class="area_login">
         <div class="login">
             <h1>Cadastro</h1>
         </div>
-        <form class="form" action="">
+        <form id="cadastroForm">
             <div class="email">
-                <label class="entrada" for="">Nome</label>
+                <label class="entrada" for="nome">Nome</label>
                 <div class="input">
-                    <input type="text">
+                    <input type="text" id="nome" name="nome">
                 </div>
             </div>
             <div class="senha">
-                <label class="entrada" for="">CPF</label>
+                <label class="entrada" for="cpf">CPF</label>
                 <div class="input">
-                    <input type="number">
+                    <input type="number" id="cpf" name="cpf">
                 </div>
             </div>
             <div class="senha">
-                <label class="entrada" for="">Email</label>
+                <label class="entrada" for="email">Email</label>
                 <div class="input">
-                    <input type="text">
+                    <input type="text" id="email" name="email">
                 </div>
             </div>
             <div class="senha">
-                <label class="entrada" for="">Senha</label>
+                <label class="entrada" for="senha">Senha</label>
                 <div class="input">
-                    <input type="text">
+                    <input type="password" id="senha" name="senha">
                 </div>
             </div>
             <div class="botao_cadastro">
                 <div class="botao">
-                    <button>Cadastrar</button>
+                    <button type="submit">Cadastrar</button>
                 </div>
-            </div>    
+            </div>
         </form>
     </div>
+    <script>
+        document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const cpf = document.getElementById('cpf').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const senha = document.getElementById('senha').value.trim();
+
+            if (!nome || !cpf || !email || !senha) {
+                alert('Todos os campos são obrigatórios.');
+                return;
+            }
+
+            if (cpf.length !== 11 || isNaN(cpf)) {
+                alert('CPF inválido. Deve conter 11 dígitos.');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            const userExists = users.some(user => user.email === email);
+            if (userExists) {
+                alert('E-mail já cadastrado. Use outro e-mail.');
+                return;
+            }
+
+            users.push({ nome, cpf, email, senha });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert('Cadastro realizado com sucesso!');
+            window.location.href = './loginPage.html'; 
+        });
+    </script>
 </body>
+
 </html>

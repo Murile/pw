@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,42 +8,84 @@
     <link rel="stylesheet" href="./loginPage.css">
     <link rel="icon" href="src/img/logo_barra-removebg-preview.png" />
 </head>
+
 <body>
     <div class="logo">
         <a href="./homePage.html">
             <img src="./src/img/logo_login.png" alt="">
         </a>
     </div>
-    <label class="borda">
-
-    </label>
+    <label class="borda"></label>
     <div class="area_login">
         <div class="login">
             <h1>Login</h1>
         </div>
-        <form class="form" action="">
+        <form id="loginForm">
             <div class="email">
-                <label class="entrada" for="">Email</label>
+                <label class="entrada" for="email">Email</label>
                 <div class="input">
-                    <input type="text">
+                    <input type="text" id="email" name="email">
                 </div>
             </div>
             <div class="senha">
-                <label class="entrada" for="">Senha</label>
+                <label class="entrada" for="senha">Senha</label>
                 <div class="input">
-                    <input type="text">
+                    <input type="password" id="senha" name="senha">
                 </div>
             </div>
             <div class="botao_cadastro">
                 <div class="botao">
-                    <a href="logado.html">Entrar</a>
+                    <button type="submit">Entrar</button>
                 </div>
                 <div class="cadastro">
                     <p>Já tem o cadastro?</p>
                     <a href="./cadastroPage.html">Cadastre-se</a>
                 </div>
-            </div>    
+            </div>
         </form>
     </div>
+    <script>
+        if (!localStorage.getItem("users")) {
+            const users = [
+                { email: "usuario@localhost.com", senha: "12345" },
+                { email: "admin@localhost.com", senha: "admin123" }
+            ];
+            localStorage.setItem("users", JSON.stringify(users));
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+
+            const email = document.getElementById('email').value.trim();
+            const senha = document.getElementById('senha').value.trim();
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!email) {
+                alert('O campo de e-mail é obrigatório.');
+                return;
+            }
+            if (!emailRegex.test(email)) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+            if (!senha) {
+                alert('O campo de senha é obrigatório.');
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem("users"));
+            const user = users.find(user => user.email === email && user.senha === senha);
+
+            if (user) {
+                alert("Login realizado com sucesso!");
+                window.location.href = "logado.html";
+            } else {
+                alert("E-mail ou senha incorretos. Tente novamente.");
+            }
+        });
+    </script>
 </body>
+
 </html>

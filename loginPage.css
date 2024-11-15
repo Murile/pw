@@ -43,6 +43,7 @@ body{
 .area_login{
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
     width: 50%;
 }
@@ -78,7 +79,7 @@ input{
     border-radius: 12px;
     margin: 25px 0px;
     padding: 10px;
-    width: 100%;
+    width:350px;
     outline: none;
     border: none;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.2);
@@ -95,20 +96,20 @@ input{
 .botao_cadastro{
     display: flex;
     justify-content: space-between;
-    width: 50%;
 }
 
-.botao a{
+.botao button{
     background-color: #2F4F4F;
     border-radius: 10px;
     border: none;
     padding: 10px 25px;
+    width: 100px;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--cor-branca);
     text-decoration: none;
 }
 
-.botao a:hover{
+.botao button:hover{
     color: var(--cor-preta);
     border: 1px solid black;
     background: var(--cor-branca);
@@ -117,8 +118,8 @@ input{
 
 .cadastro{
     display: flex;
-    align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .cadastro p{
