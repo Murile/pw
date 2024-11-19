@@ -148,6 +148,11 @@ nav>div>input::placeholder{
 }
 #colecoes .content>div>a{
     text-decoration: none;
+    transition: all ease .4s;
+}
+#colecoes .content>div>a:hover{
+    transform: scale(1.05);
+    transition: all ease .4s;
 }
 .text{
     display: flex;
@@ -182,6 +187,7 @@ nav>div>input::placeholder{
     border-radius: 8px;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
+    transition: all ease .4s;
 }
 
 .produtos_cartao a {
@@ -203,14 +209,12 @@ nav>div>input::placeholder{
     height: auto;
     border-radius: 10px;
     margin-bottom: 8px;
+    
 }
-
-/* .produtos_cartao_img:hover {
-    transform: scale(1.05);
-} */
 
 .produtos_cartao:hover {
     transform: scale(1.05);
+    transition: all ease .4s;
 }
 
 /*main*/
