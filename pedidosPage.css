@@ -1,0 +1,80 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 53vh;
+    font-family: inter;
+}
+.nave{
+    width: 20%;
+}
+.borda{
+    width: 1px;
+    background-color: black;
+    height: 700px;
+}
+.divisao{
+    height: 1px;
+    width: 970px;
+    background-color: #bfbfbf;
+    margin-left: 4em;
+    margin-top: 2em;
+    margin-bottom: -1em;
+}
+.compra-div {
+    border: 1px solid black;
+    width: 1092px;
+    height: 266px;
+    display: flex;
+    flex-direction: column;
+}
+.cima-compras{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.infos-compras-e{
+    margin-left: 2em;
+}
+.infos-compras-d{
+    margin-right: 2em;
+}
+
+.baio-compras{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4em;
+    align-items: center;
+}
+.title{
+    margin-left: -10em;
+}
+
+.h33{
+ margin-bottom: 3em;
+}
+.infos-compras-eb{
+    margin-left: 2em;
+}
+.infos-compras-db{
+    margin-right: 2em;
+}
+.conten{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 50%;
+    margin-bottom: 18em;
+}
+.compra-div{
+    margin-left: 5em;
+}
+.tite{
+    margin-bottom: 2em;
+    font-size: 24px;
+    font-family: Dela Gothic One;
+    font-weight: 400;
+    letter-spacing: 0%;
+}
