@@ -88,6 +88,12 @@ body{
     padding: 20px;
     align-items: center;
 }
+.card-add input{
+    border: #2F4F4F 1px solid;
+    padding: 10px;
+    border-radius: 11px;
+    outline: none;
+}
 .buton{margin: 0xp 10px;}
 .buton button{
     background-color: #ffffff;
