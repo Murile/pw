@@ -16,26 +16,104 @@
             <h3>Meus endereços</h3>
             <p>Gerencie seus endereços</p>
         </div>
-        <div class='card'>
-            <div>
-                <div class='titless'>
-                    <h3>Casa</h3>
-                </div>
+        <div class='card-add'>
+            <div class="titless">
+                <h3>Adicionar Endereço</h3>
             </div>
-            <div>
-                <div class='description'>
-                    <div class="text">
-                        <p>Endereço: Rua da desgraça, 005</p>
-                        <p>CEP: 00000-000 </p>
-                        <p>Região:São Paulo</p>
-                    </div>
+            <div class="description">
+                <div class="text">
+                    <input type="text" id="endereco" placeholder="Digite um endereço" />
                 </div>
             </div>
             <div class='buton'>
-                <button>Editar</button>
-                <button>Excluir</button>
+                <button onclick="adicionarEndereco()">Adicionar</button>
             </div>
         </div>
+        <div id="listaEnderecos" class='card-list'>
+        </div>
     </div>
+
+    <script>
+        function adicionarEndereco() {
+            const enderecoInput = document.getElementById('endereco');
+            const endereco = enderecoInput.value.trim();
+
+            if (!endereco) {
+                alert('Por favor, digite um endereço.');
+                return;
+            }
+
+            let enderecos = JSON.parse(localStorage.getItem('enderecos') || '[]');
+            enderecos.push(endereco);
+            localStorage.setItem('enderecos', JSON.stringify(enderecos));
+            atualizarListaEnderecos();
+            enderecoInput.value = '';
+        }
+        function atualizarListaEnderecos() {
+            const listaEnderecos = document.getElementById('listaEnderecos');
+            const enderecos = JSON.parse(localStorage.getItem('enderecos') || '[]');
+
+            listaEnderecos.innerHTML = '';
+            enderecos.forEach((endereco, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                const divTitle = document.createElement('div');
+                divTitle.className = 'titless';
+
+                const h3 = document.createElement('h3');
+                h3.textContent = `Endereço ${index + 1}`;
+                divTitle.appendChild(h3);
+
+                const description = document.createElement('div');
+                description.className = 'description';
+
+                const text = document.createElement('div');
+                text.className = 'text';
+                text.innerHTML = `
+                    <p>Endereço: ${endereco}</p>
+                `;
+
+                description.appendChild(text);
+
+                const buton = document.createElement('div');
+                buton.className = 'buton';
+
+                const botaoEditar = document.createElement('button');
+                botaoEditar.textContent = 'Editar';
+                botaoEditar.onclick = () => editarEndereco(index);
+
+                const botaoExcluir = document.createElement('button');
+                botaoExcluir.textContent = 'Excluir';
+                botaoExcluir.onclick = () => excluirEndereco(index);
+
+                buton.appendChild(botaoEditar);
+                buton.appendChild(botaoExcluir);
+
+                card.appendChild(divTitle);
+                card.appendChild(description);
+                card.appendChild(buton);
+
+                listaEnderecos.appendChild(card);
+            });
+        }
+        function excluirEndereco(index) {
+            let enderecos = JSON.parse(localStorage.getItem('enderecos') || '[]');
+            enderecos.splice(index, 1);
+            localStorage.setItem('enderecos', JSON.stringify(enderecos));
+            atualizarListaEnderecos();
+        }
+        function editarEndereco(index) {
+            let enderecos = JSON.parse(localStorage.getItem('enderecos') || '[]');
+
+            const novoEndereco = prompt('Digite o novo endereço:', enderecos[index]);
+            if (novoEndereco && novoEndereco.trim()) {
+                enderecos[index] = novoEndereco.trim();
+                localStorage.setItem('enderecos', JSON.stringify(enderecos))
+                atualizarListaEnderecos();
+            }
+        }
+        atualizarListaEnderecos();
+    </script>
 </body>
 </html>
